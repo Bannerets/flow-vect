@@ -33,16 +33,14 @@ const vect = createVect() // Vect<0, string>
 const vect1 = push(vect, 'foo') // Vect<1, string>
 const vect2 = push(vect1, 'bar') // Vect<2, string>
 
-const vect21: Vect<2, string> = vect2
-
 type Length = GetLength<typeof vect2>
 ;(2: Length)
 // $ExpectError
 ;(3: Length) // error
 
-;(true: IsNotEmpty<typeof vect21>)
+;(true: IsNotEmpty<typeof vect2>)
 // $ExpectError
-;(false: IsNotEmpty<typeof vect21>) // error
+;(false: IsNotEmpty<typeof vect2>) // error
 // $ExpectError
 ;(true: IsEmpty<typeof vect2>) // error
 
