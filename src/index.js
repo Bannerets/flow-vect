@@ -1,7 +1,7 @@
 // @flow
 
 // import type { Fix } from 'flown'
-import type { If, Lte } from './typelevel/util'
+import type { If, Is } from './typelevel/util'
 import type { Inc } from './typelevel/number/inc'
 import type { Dec } from './typelevel/number/dec'
 
@@ -14,10 +14,10 @@ export type GetLength<V> =
   $Call<(<N, T, VV: Vect<N, T>>(VV) => N), V>
 
 export type IsEmpty<V> =
-  If<Lte<GetLength<V>, 0>, true, false>
+  If<Is<GetLength<V>, 0>, true, false>
 
 export type IsNotEmpty<V> =
-  If<Lte<GetLength<V>, 0>, false, true>
+  If<Is<GetLength<V>, 0>, false, true>
 
 export function createVect <T>(/*:: t?: T*/): Vect<0, T> {
   return new VectClass()

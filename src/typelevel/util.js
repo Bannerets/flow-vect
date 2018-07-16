@@ -6,8 +6,14 @@ export type If<X: boolean, Then, Else = empty> = $Call<
   X, Then, Else
 >
 
-export type Lte<X, Y> = $Call<
-  & ($Subtype<X> => true)
+export type Is<A, B> = $Call<
+  & (B => true)
   & (any => false),
-  Y
+  A
 >
+
+// export type Lte<X, Y> = $Call<
+//   & ($Subtype<X> => true)
+//   & (any => false),
+//   Y
+// >
