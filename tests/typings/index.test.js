@@ -4,11 +4,11 @@ import {
   type Vect,
   createVect,
   push,
-  unshift,
+  shift,
   type GetLength,
   type IsEmpty,
   type IsNotEmpty
-} from '../src'
+} from '../../src'
 
 const vect = createVect() // Vect<0, string>
 // or
@@ -36,7 +36,12 @@ console.log(vect2)
 
 const vect22: Vect<2, string> = vect2
 
-const [ vect3, value ] = unshift(vect22)
+const [ vect3, value ] = shift(vect22)
 console.log(value) //=> 'foo'
 ;(1: GetLength<typeof vect3>)
 ;(vect3: Vect<1, string>)
+
+function sum2 (vect: Vect<2, number>): number {
+  const [vect1, n] = shift(vect)
+  return n + shift(vect1)[1]
+}
