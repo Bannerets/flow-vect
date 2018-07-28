@@ -1,7 +1,7 @@
 // @flow
 
-export type Dec<N> = $Call<
-  & (0 => 0)
+export type Dec<N: number> = $Call<
+  // & (0 => 0)
   & (1 => 0)
   & (2 => 1)
   & (3 => 2)
@@ -1001,8 +1001,7 @@ export type Dec<N> = $Call<
   & (997 => 996)
   & (998 => 997)
   & (999 => 998)
-  & (1000 => 999),
-  N
->
+  & (1000 => 999)
+, N>
 
 export type _Dec = <N>(N) => Dec<N>

@@ -12,16 +12,26 @@ const createNode = <T>(v: T): Node<T> => ({
 
 export class LinkedList<T> {
   head: Node<T> | null = null
-  tail: Node<T> | null = null
+  last: Node<T> | null = null
 
   push (v: T) {
-    const { tail } = this
-    if (this.head === null) this.tail = this.head = createNode(v)
-    else if (tail !== null) this.tail = tail.next = createNode(v)
+    const { last } = this
+    if (this.head === null) this.last = this.head = createNode(v)
+    else if (last !== null) this.last = last.next = createNode(v)
   }
 
-  unshift (): T | null {
-    const { head, tail } = this
+  unshift (v: T) {
+    const { head } = this
+    const node = createNode(v)
+    if (head === null) this.last = this.head = node
+    else {
+      node.next = head
+      this.head = node
+    }
+  }
+
+  shift (): T | null {
+    const { head, last } = this
     if (head === null) return null
     this.head = head.next
     return head.value

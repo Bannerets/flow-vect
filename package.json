@@ -1,6 +1,6 @@
 {
   "name": "flow-vect",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Statically typed Vect",
   "main": "dist/index.js",
   "scripts": {
@@ -22,11 +22,12 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-flow": "^6.23.0",
+    "@babel/cli": "^7.0.0-beta.54",
+    "@babel/core": "^7.0.0-beta.54",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.54",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.54",
+    "@babel/preset-env": "^7.0.0-beta.54",
+    "@babel/preset-flow": "^7.0.0-beta.54",
     "flow-bin": "^0.76.0",
     "flow-copy-source": "^1.3.0",
     "rimraf": "^2.6.2"

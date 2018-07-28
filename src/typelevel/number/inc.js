@@ -1,6 +1,6 @@
 // @flow
 
-export type Inc<N> = $Call<
+export type Inc<N: number> = $Call<
   & (0 => 1)
   & (1 => 2)
   & (2 => 3)
@@ -1000,8 +1000,7 @@ export type Inc<N> = $Call<
   & (996 => 997)
   & (997 => 998)
   & (998 => 999)
-  & (999 => 1000),
-  N
->
+  & (999 => 1000)
+, N>
 
 export type _Inc = <N>(N) => Inc<N>

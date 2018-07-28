@@ -12,8 +12,20 @@ export type Is<A, B> = $Call<
   A
 >
 
-// export type Lte<X, Y> = $Call<
-//   & ($Subtype<X> => true)
+export type IsNot<A, B> = $Call<
+  & (B => false)
+  & (any => true),
+  A
+>
+
+export type Not<X: boolean> = $Call<
+  & (true => false)
+  & (false => true),
+  X
+>
+
+// export type IsCompat<X, Y> = $Call<
+//   & ($Subtype<Y> => true)
 //   & (any => false),
-//   Y
+//   X
 // >
