@@ -1,6 +1,6 @@
 {
   "name": "flow-vect",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Statically typed Vect",
   "main": "dist/index.js",
   "scripts": {

@@ -1,7 +1,7 @@
 // @flow
 
 // import type { Fix } from 'flown'
-import type { If, Is } from './typelevel/util'
+import type { Is, Not } from './typelevel/util'
 import type { Inc } from './typelevel/number/inc'
 import type { Dec } from './typelevel/number/dec'
 
@@ -23,7 +23,7 @@ export type IsEmpty<V> =
   Is<GetLength<V>, 0>
 
 export type IsNotEmpty<V> =
-  If<Is<GetLength<V>, 0>, false, true>
+  Not<Is<GetLength<V>, 0>>
 
 export function createVect <T>(/*:: t?: T */): Vect<0, T> {
   return new VectClass()
