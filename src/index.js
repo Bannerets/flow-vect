@@ -20,7 +20,7 @@ export type GetLength<V> =
   $Call<(<N, T, VV: Vect<N, T>>(VV) => N), V>
 
 export type IsEmpty<V> =
-  If<Is<GetLength<V>, 0>, true, false>
+  Is<GetLength<V>, 0>
 
 export type IsNotEmpty<V> =
   If<Is<GetLength<V>, 0>, false, true>
@@ -40,10 +40,10 @@ export function unshift <N: number, T>(vect: Vect<N, T>, el: T): Vect<Inc<N>, T>
 }
 
 declare export function shift (Vect<0>): InvalidVect
-declare export function shift <N: number, T>(Vect<N, T>): [ Vect<Dec<N>, T>, T ]
-export function shift <N: number, T>(vect: Vect<N, T>): [ Vect<Dec<N>, T>, T ] {
+declare export function shift <N: number, T>(Vect<N, T>): [ T, Vect<Dec<N>, T> ]
+export function shift <N: number, T>(vect: Vect<N, T>): [ T, Vect<Dec<N>, T> ] {
   const value = vect.shift()
-  return [ /*:: decVect */ (vect), (value: $FlowFixMe) ]
+  return [ (value: $FlowFixMe), /*:: decVect */ (vect) ]
 }
 
 declare export function head (Vect<0>): InvalidVect

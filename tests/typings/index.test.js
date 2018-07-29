@@ -43,14 +43,14 @@ console.log(vect2) //=> Vect
 
 const vect22: Vect<2, string> = vect2
 
-const [ vect3, value ] = shift(vect22)
+const [ value, vect3 ] = shift(vect22)
 console.log(value) //=> 'foo'
 ;(1: GetLength<typeof vect3>)
 ;(vect3: Vect<1, string>)
 
 const x = shift(vect) // vect = Vect<0>
 ;(x: InvalidVect)
-// $FlowFixMe
+// $ExpectError
 ;(x: [any, any])
 
 
@@ -59,16 +59,17 @@ const vect4 = unshift(vect22, 'abc')
 
 const el = head(vect4)
 ;(el: string)
-// $FlowFixMe
+// $ExpectError
 ;(el: number)
 console.log(el) //=> 'abc'
 
 ;(head(vect): InvalidVect)
-// $FlowFixMe
+// $ExpectError
 ;(head(vect): string)
 
+
 function sum2 (vect: Vect<2, number>): number {
-  const [vect1, n1] = shift(vect)
-  const [, n2] = shift(vect1)
-  return n1 + n2
+  const [x, xs] = shift(vect)
+  const [y] = shift(xs)
+  return x + y
 }
