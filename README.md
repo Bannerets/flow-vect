@@ -29,19 +29,21 @@ import {
   type IsNotEmpty
 } from 'flow-vect'
 
+
 const vect = createVect() // Vect<0, string>   (type inferred from usage)
 // or
 //   createVect<string>()
 //   createVect('str')
 
-const vect1 = push(vect, 'foo') // Vect<1, string>
-const vect2 = push(vect1, 'bar') // Vect<2, string>
+const vect1 = push('foo', vect) // Vect<1, string>
+const vect2 = push('bar', vect1) // Vect<2, string>
 
 
 type Length = GetLength<typeof vect2>
 ;(2: Length)
 // $ExpectError
 ;(3: Length) // error
+
 
 ;(true: IsNotEmpty<typeof vect2>)
 // $ExpectError
@@ -50,9 +52,11 @@ type Length = GetLength<typeof vect2>
 ;(true: IsEmpty<typeof vect>)
 ;(false: IsEmpty<typeof vect1>)
 
+
 console.log(vect2) //=> Vect
 
 const vect22: Vect<2, string> = vect2
+
 
 const [ value, vect3 ] = shift(vect22)
 console.log(value) //=> 'foo'
@@ -60,7 +64,7 @@ console.log(value) //=> 'foo'
 ;(vect3: Vect<1, string>)
 
 
-const vect4 = unshift(vect22, 'abc')
+const vect4 = unshift('abc', vect22)
 
 
 const el = head(vect4)
@@ -74,3 +78,5 @@ function sum2 (vect: Vect<2, number>): number {
   return x + y
 }
 ```
+
+See also [index.test.js](tests/typings/index.test.js).

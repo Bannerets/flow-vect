@@ -1,7 +1,7 @@
 // @flow
 
 // import type { Fix } from 'flown'
-import type { Is, Not } from './typelevel/util'
+import type { Is, IsNot } from './typelevel/util'
 import type { Inc } from './typelevel/number/inc'
 import type { Dec } from './typelevel/number/dec'
 
@@ -23,18 +23,21 @@ export type IsEmpty<V> =
   Is<GetLength<V>, 0>
 
 export type IsNotEmpty<V> =
-  Not<Is<GetLength<V>, 0>>
+  IsNot<GetLength<V>, 0>
+
+export type IsVect<MaybeV> =
+  Is<MaybeV, Vect<any, any>>
 
 export function createVect <T>(/*:: t?: T */): Vect<0, T> {
   return new VectClass()
 }
 
-export function push <N: number, T>(vect: Vect<N, T>, el: T): Vect<Inc<N>, T> {
+export function push <N: number, T>(el: T, vect: Vect<N, T>): Vect<Inc<N>, T> {
   vect.push(el)
   return /*:: incVect */ (vect)
 }
 
-export function unshift <N: number, T>(vect: Vect<N, T>, el: T): Vect<Inc<N>, T> {
+export function unshift <N: number, T>(el: T, vect: Vect<N, T>): Vect<Inc<N>, T> {
   vect.unshift(el)
   return /*:: incVect */ (vect)
 }
