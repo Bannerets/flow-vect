@@ -52,3 +52,7 @@ export function head <N: number, T>(vect: Vect<N, T>): T {
   const head = (vect.head: $FlowFixMe)
   return head && head.value
 }
+
+export function isVect (maybeVect: any): boolean %checks {
+  return maybeVect instanceof VectClass
+}

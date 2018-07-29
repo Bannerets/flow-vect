@@ -6,6 +6,7 @@ import {
   unshift,
   shift,
   head,
+  isVect,
 
   type Vect,
 
@@ -66,6 +67,15 @@ console.log(el) //=> 'abc'
 ;(head(vect): InvalidVect)
 // $ExpectError
 ;(head(vect): string)
+
+
+;(isVect(vect): boolean)
+;(isVect({}): boolean)
+// $ExpectError
+;(isVect({}): number)
+
+console.log('isVect 1', isVect(vect)) //=> true
+console.log('isVect 2', isVect({})) //=> false
 
 
 function sum2 (vect: Vect<2, number>): number {
