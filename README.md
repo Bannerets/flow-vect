@@ -21,6 +21,7 @@ import {
   unshift,
   shift,
   head,
+  append,
 
   type Vect,
 
@@ -58,18 +59,23 @@ console.log(vect2) //=> Vect
 const vect22: Vect<2, string> = vect2
 
 
-const [ value, vect3 ] = shift(vect22)
+const [ value, vect11 ] = shift(vect22)
 console.log(value) //=> 'foo'
-;(1: GetLength<typeof vect3>)
-;(vect3: Vect<1, string>)
+;(1: GetLength<typeof vect11>)
+;(vect11: Vect<1, string>)
 
 
-const vect4 = unshift('abc', vect22)
+const vect3 = unshift('abc', vect22)
+;(vect3: Vect<3, string>)
 
 
-const el = head(vect4)
+const el = head(vect3)
 ;(el: string)
 console.log(el) //=> 'abc'
+
+
+const vect50 = append(vect22, (vect3: Vect<3, string>))
+;(vect50: Vect<5, string>)
 
 
 function sum2 (vect: Vect<2, number>): number {
@@ -80,3 +86,24 @@ function sum2 (vect: Vect<2, number>): number {
 ```
 
 See also [index.test.js](tests/typings/index.test.js).
+
+#### Functions:
+
+- `createVect`
+- `push`
+- `pop`
+- `unshift`
+- `shift`
+- `head`
+- `last`
+- `append`
+- `equals`
+- `isVect`
+
+#### Types:
+
+- `Vect<N, T>`
+- `GetLength<V>`
+- `IsEmpty<V>`
+- `IsNotEmpty<V>`
+- `IsVect<V>`

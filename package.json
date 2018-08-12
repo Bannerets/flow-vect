@@ -1,6 +1,6 @@
 {
   "name": "flow-vect",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Statically typed Vect",
   "main": "dist/index.js",
   "scripts": {
@@ -20,7 +20,9 @@
     "README.md",
     "LICENSE"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "immutable": "^4.0.0-rc.9"
+  },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.54",
     "@babel/core": "^7.0.0-beta.54",
