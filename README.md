@@ -22,9 +22,9 @@ import {
   shift,
   head,
   append,
+  index,
 
   type Vect,
-
   type GetLength,
   type IsEmpty,
   type IsNotEmpty
@@ -78,6 +78,11 @@ const vect50 = append(vect22, (vect3: Vect<3, string>))
 ;(vect50: Vect<5, string>)
 
 
+const el0 = index(1, vect22)
+;(el0: string)
+console.log('index', el0) //=> 'bar'
+
+
 function sum2 (vect: Vect<2, number>): number {
   const [x, xs] = shift(vect)
   const [y] = shift(xs)
@@ -97,6 +102,8 @@ See also [index.test.js](tests/typings/index.test.js).
 - `head`
 - `last`
 - `append`
+- `index`
+- `indexOf`
 - `equals`
 - `isVect`
 

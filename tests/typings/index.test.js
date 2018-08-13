@@ -9,6 +9,8 @@ import {
   head,
   last,
   append,
+  index,
+  indexOf,
   equals,
   isVect,
 
@@ -17,7 +19,9 @@ import {
   type GetLength,
   type IsEmpty,
   type IsNotEmpty,
-  type IsVect
+  type IsVect,
+
+  type EMPTY
 } from '../../src'
 
 
@@ -111,6 +115,32 @@ console.log('append', vect50)
 ;(vect50: Vect<4, string>)
 // $ExpectError
 ;(vect50: Vect<6, string>)
+
+
+const el0 = index(1, vect22)
+console.log('index', el0) //=> 'bar'
+;(el0: string)
+// $ExpectError
+;(el0: number)
+// $ExpectError
+index(0, vect)
+const el1 = index(8, vect22)
+;(el1: EMPTY)
+// $ExpectError
+;(el1: string)
+// $ExpectError
+index('abc', vect22)
+// $ExpectError
+/*:: index(2, []) */
+
+
+const i0 = indexOf('bar', vect22)
+;(i0: number | void)
+console.log('indexOf', i0) //=> 1
+// $ExpectError
+indexOf('bar', vect)
+// $ExpectError
+indexOf(1, vect22)
 
 
 ;(equals(vect1, vect2): boolean)

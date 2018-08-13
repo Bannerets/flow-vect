@@ -1,12 +1,12 @@
 // @flow
 
 // import type { Fix } from 'flown'
-import type { Is, IsNot } from './typelevel/util'
+import type { Is, IsNot, If } from './typelevel/util'
 import type { Nat, NonZeroNat } from './typelevel/number/nat'
 import type { Inc } from './typelevel/number/inc'
 import type { Dec } from './typelevel/number/dec'
 import type { Add } from './typelevel/number/add'
-// import type { Gt } from './typelevel/number/gt'
+import type { Gt } from './typelevel/number/gt'
 
 import { List } from 'immutable'
 
@@ -75,6 +75,23 @@ export function append <N: Nat, M: Nat, T>(
   const v3 = (v1.concat(v2): $FlowFixMe)
   v3.__vector = true
   return v3
+}
+
+declare class EMPTYClass {}
+export opaque type EMPTY = EMPTYClass
+
+export function index <I: Nat, N: NonZeroNat, T>(
+  index: I,
+  vect: Vect<N, T>
+): If<Gt<N, I>, T, EMPTY> {
+  const value = vect.get(index)
+  return (value: $FlowFixMe)
+}
+
+export function indexOf <N: NonZeroNat, T>(el: T, vect: Vect<N, T>): number | void {
+  const index = vect.indexOf(el)
+  if (index === -1) return undefined
+  return index
 }
 
 export function equals <N: Nat, M: Nat, T>(
