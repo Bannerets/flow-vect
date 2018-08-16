@@ -1,9 +1,14 @@
 // @flow
 
-export type If<X: boolean, Then, Else = empty> = $Call<
+export type IfElse<X: boolean, Then, Else> = $Call<
   & ((true, Then, Else) => Then)
   & ((false, Then, Else) => Else),
   X, Then, Else
+>
+
+export type If<X: boolean, Then> = $Call<
+  & ((true, Then) => Then),
+  X, Then
 >
 
 export type Is<A, B> = $Call<

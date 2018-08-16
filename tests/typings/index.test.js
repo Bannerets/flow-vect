@@ -19,9 +19,7 @@ import {
   type GetLength,
   type IsEmpty,
   type IsNotEmpty,
-  type IsVect,
-
-  type EMPTY
+  type IsVect
 } from '../../src'
 
 
@@ -124,9 +122,8 @@ console.log('index', el0) //=> 'bar'
 ;(el0: number)
 // $ExpectError
 index(0, vect)
+// $FlowFixMe
 const el1 = index(8, vect22)
-;(el1: EMPTY)
-// $ExpectError
 ;(el1: string)
 // $ExpectError
 index('abc', vect22)

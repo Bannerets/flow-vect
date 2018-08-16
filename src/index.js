@@ -77,13 +77,10 @@ export function append <N: Nat, M: Nat, T>(
   return v3
 }
 
-declare class EMPTYClass {}
-export opaque type EMPTY = EMPTYClass
-
 export function index <I: Nat, N: NonZeroNat, T>(
   index: I,
   vect: Vect<N, T>
-): If<Gt<N, I>, T, EMPTY> {
+): If<Gt<N, I>, T> {
   const value = vect.get(index)
   return (value: $FlowFixMe)
 }

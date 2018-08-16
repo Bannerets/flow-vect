@@ -23,6 +23,7 @@ import {
   head,
   append,
   index,
+  indexOf,
 
   type Vect,
   type GetLength,
@@ -81,6 +82,9 @@ const vect50 = append(vect22, (vect3: Vect<3, string>))
 const el0 = index(1, vect22)
 ;(el0: string)
 console.log('index', el0) //=> 'bar'
+
+
+;(indexOf('bar', vect22): number | void)
 
 
 function sum2 (vect: Vect<2, number>): number {
