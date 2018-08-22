@@ -1,6 +1,6 @@
 # flow-vect
 
-Statically typed `Vect`
+Statically typed [`Vect`](https://github.com/idris-lang/Idris-dev/blob/7454bb21f798d98c4d0e5185b9e268e65b5b852b/libs/base/Data/Vect.idr)
 
 [![npm](https://img.shields.io/npm/v/flow-vect.svg)](https://www.npmjs.com/package/flow-vect)
 
